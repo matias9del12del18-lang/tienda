@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tienda EmpanadaMC</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#f4f6f8;color:#222}
+.background{position:fixed;inset:0;background:url('https://images.unsplash.com/photo-1500534314209-a25ddb2bd429');background-size:cover;background-position:center;filter:blur(10px) brightness(.7);z-index:-2}
+.overlay{position:fixed;inset:0;background:rgba(255,255,255,.7);z-index:-1}
+.hero{text-align:center;padding:40px}
+.logo{width:420px;max-width:90%;display:block;margin:auto}
+.navBtns{display:flex;gap:20px;justify-content:center;margin-top:20px;flex-wrap:wrap}
+.navBtns button{padding:14px 28px;border:none;border-radius:999px;font-weight:bold;background:#ff9800;color:#fff;cursor:pointer}
+.shop{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:30px;max-width:1000px;margin:40px auto}
+.card{background:#fff;border-radius:18px;padding:30px;text-align:center;box-shadow:0 20px 40px rgba(0,0,0,.15)}
+.price del{color:#e53935;margin-right:8px}
+.buy{display:inline-block;margin-top:15px;padding:12px 24px;border-radius:999px;background:#4caf50;color:#fff;text-decoration:none;font-weight:bold}
+.hidden{display:none}
+h1{text-align:center}
+</style>
+</head>
+
+<body>
+<div class="background"></div>
+<div class="overlay"></div>
+
+<section class="hero">
+<img id="logoImg" class="logo">
+<h1>Tienda EmpanadaMC</h1>
+
+<div class="navBtns">
+<button onclick="showSection('rangos')">Rangos</button>
+<button onclick="showSection('llaves')">Llaves</button>
+</div>
+</section>
+
+<!-- RANGOS -->
+<div id="rangos" class="shop">
+<div class="card">
+<h3>🥩 Rango Carne</h3>
+<p><del>10.00 USD</del> 7.00 USD</p>
+<a class="buy" target="_blank" href="https://www.paypal.com/ncp/payment/T3NV4VS624XQA">Comprar ahora</a>
+</div>
+
+<div class="card">
+<h3>🐔 Rango Pollo</h3>
+<p><del>7.00 USD</del> 4.00 USD</p>
+<a class="buy" target="_blank" href="https://www.paypal.com/ncp/payment/KLCL4RLYJJ5QU">Comprar ahora</a>
+</div>
+
+<div class="card">
+<h3>🧀 Rango Jamón y Queso</h3>
+<p><del>5.00 USD</del> 2.00 USD</p>
+<a class="buy" target="_blank" href="https://www.paypal.com/ncp/payment/4P4N6WC3YZM9Y">Comprar ahora</a>
+</div>
+</div>
+
+<!-- LLAVES / BOX BLOQUEADO -->
+<div id="llaves" class="hidden" style="text-align:center">
+<h1>🚧 Próximamente</h1>
+<div class="shop">
+<div class="card">
+<h3>BOX & LLAVES</h3>
+<p>Las modalidades BOX (Land, Farm, Terror) y todas las llaves estarán disponibles muy pronto.</p>
+<p>Mantenete atento a nuestro Discord para más información.</p>
+<a class="buy" href="#" onclick="proximamente()">Próximamente</a>
+</div>
+</div>
+</div>
+
+<h1>🤝 Contribuciones</h1>
+<div class="shop">
+<div class="card">
+<p>Ayuda a mantener el servidor y seguir creciendo 💛</p>
+<a class="buy" target="_blank" href="https://www.paypal.com/ncp/payment/86US973QD4J5W">Contribuir</a>
+</div>
+</div>
+
+<script>
+function showSection(sec){
+document.getElementById('rangos').classList.add('hidden');
+document.getElementById('llaves').classList.add('hidden');
+document.getElementById(sec).classList.remove('hidden');
+}
+
+function proximamente(){
+alert("🚧 Las modalidades BOX y las llaves estarán disponibles próximamente.");
+}
+
+const logo=document.getElementById('logoImg');
+const savedLogo=localStorage.getItem('empanadaLogo');
+if(savedLogo){logo.src=savedLogo}
+</script>
+
+</body>
+</html>
